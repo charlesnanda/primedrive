@@ -8,8 +8,16 @@ import { Bugatti_Sport } from "./models/2026_bugatti_tourbillon";
 const ModelViewer = () => {
     const [webglSupported, setWebglSupported] = useState(true)
     const [contextLost, setContextLost] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
+
     // Device support Check
     useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth < 768);
+        };
+        handleResize();
+        window.addEventListener("resize", handleResize);
+
         try {
             const canvas = document.createElement("canvas");
             const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
@@ -19,6 +27,8 @@ const ModelViewer = () => {
         } catch (error) {
             setWebglSupported(false);
         }
+
+        return () => window.removeEventListener("resize", handleResize);
     },[])
 
     if (!webglSupported) {
@@ -48,7 +58,7 @@ const ModelViewer = () => {
 
   return (
     <div style={{ width: "100%", height: "100%", position: "relative" }}>
-    <Canvas camera={{ position: [0.1, 0.1, 0.2], fov:20 }} gl={{
+    <Canvas camera={{ position: [0.1, 0.1, 0.2], fov: isMobile ? 50 : 20 }} gl={{
         antialias: true,
         powerPreference: "high-performance",
         preserveDrawingBuffer: true,
@@ -77,13 +87,13 @@ const ModelViewer = () => {
 
             {/** CONTROLS: Scene UX */}
             <OrbitControls 
-                enableZoom={true} 
+                enableZoom={false} 
                 enablePan={false}
                 autoRotate={true} 
                 autoRotateSpeed={1}
-                // minDistance={6}
-                // maxDistance={12}
-                // maxPolarAngle={Math.PI /2 - 0.1}
+                makeDefault
+                minPolarAngle={0}
+                maxPolarAngle={Math.PI / 1.75}
             />
         </Suspense>
     </Canvas>

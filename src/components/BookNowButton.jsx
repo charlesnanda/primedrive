@@ -1,5 +1,5 @@
 
-const BookNowButton = ({type}) => {
+const BookNowButton = ({type, className}) => {
   return (
     <button 
         className={`${
@@ -7,7 +7,7 @@ const BookNowButton = ({type}) => {
         } text-zinc-800 py-3 px-5 rounded-full cursor-pointer
         hover:bg-transparent border border-transparent
         hover:border-zinc-100 transition-all duration-200 ease-out
-        hover:text-zinc-200 clash-display
+        hover:text-zinc-200 clash-display ${className || ""}
         }`}>
             Book Now
     </button>

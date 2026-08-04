@@ -51,16 +51,16 @@ const CTASection = () => {
     <div className="absolute inset-0 bg-transparent inset-0
     bg-transparent overflow-hidden">
         {/** 3D Canvas Container */}
-        <div className="absolute hidden lg:block bg-transparent inset-0">
+        <div className="absolute bg-transparent inset-0">
             <ModelViewer />
         </div>
 
         {/** Decor: side Overlays */}
         <div className="absolute h-full w-20 md:w-40 lg:w-80
-        lg:pointer-events-none bg-gradient-to-r from-zinc-950
+        pointer-events-none bg-gradient-to-r from-zinc-950
         to-transparent"></div>
         <div className="absolute right-0 h-full w-20 md:w-40 lg:w-80
-        lg:pointer-events-none bg-gradient-to-l from-zinc-950
+        pointer-events-none bg-gradient-to-l from-zinc-950
         to-transparent"></div>
     </div>
 
@@ -78,7 +78,7 @@ const CTASection = () => {
                 Browse our extensive fleet in 3D, book with ease, and embark on your next unforgettable journey
             </p>
 
-            <BookNowButton type={2} />
+            <BookNowButton type={2} className="pointer-events-auto" />
         </div>
 
         {/** Discount Banner */}

@@ -17,11 +17,8 @@ export function Bugatti_Sport(props) {
 
   console.log("Bugatti model loaded");
 
-  useEffect(() => {
-    if (materials.bBugatti_Tourbillon_2026Paint_Material1) {
-      materials.bBugatti_Tourbillon_2026Paint_Material1.color.set('#ADD8E6');
-    }
-  }, [materials]);
+  const bodyMaterial = materials.santafek_body;
+
 
   return (
     <group {...props} dispose={null}>
