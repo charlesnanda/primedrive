@@ -76,18 +76,18 @@ const NavBar = () => {
           <div className="hidden md:centered-row gap-6">
             {
               navLinks.map((item,index) => (
-                <a 
+                <NavLink 
                   key={index} 
-                  href={item.path} 
-                  className={`text-sm md:text-lg hover:font-semibold 
+                  to={item.path} 
+                  className={({isActive}) => `text-sm md:text-lg hover:font-semibold 
                     hover:-translate-y-1 ease-out transition-all duration-300
                     ${
                       isScrolled 
-                      ? "text-white hover:text-yellow-300"
-                      : "text-zinc-800"
+                      ? (isActive ? "text-yellow-300 underline" : "text-white hover:text-yellow-300")
+                      : (isActive ? "text-zinc-950 font-bold" : "text-zinc-800")
                     }`}>
                       {item.name}
-                    </a>
+                    </NavLink>
             ))}
           </div>
 
@@ -95,7 +95,7 @@ const NavBar = () => {
           <div className="md:centered-row gap-2 hidden">
             {/* button */}
             <Link to="/rent">
-              <button className="class-display text-base 
+              <button className="clash-display text-base 
                 bg-gradient-to-r from-zinc-700 to-zinc-950 
                 px-4 py-2 rounded-full cursor-pointer 
                 hover:-translate-y-0.5 duration-200 
@@ -114,20 +114,20 @@ const NavBar = () => {
 
           {/** Mobile Nav Icon **/}
           <div className="md:hidden p-1 rounded-md">
-            <button className="md:hidden text-white hover:text-400
-              transition-color" onClick={() => setIsOpen(!isOpen)}>
+            <button className="md:hidden text-zinc-800 hover:text-zinc-600
+              transition-colors" onClick={() => setIsOpen(!isOpen)}>
 
               {
               isOpen ? (
                 <X size={34} className="text-zinc-800"/>
               ) : (
-                <Menu size={40} className="text-zinc-800 mt-2"/>
+                <Menu size={40} className={`${isScrolled ? "text-zinc-200" : "text-zinc-800"}`}/>
               )}
             </button>
           </div>
 
           {/** Mobile Nav Menu **/}
-          <div className={`absolute md:hidden -top-5 w-full h-screen bg-zinc-50 backdrop-blur-lg transition-transform duration-300 ease-in-out z-[999] flex flex-col jsutify-between 
+          <div className={`absolute md:hidden -top-5 w-full h-screen bg-zinc-50 backdrop-blur-lg transition-transform duration-300 ease-in-out z-[999] flex flex-col justify-between 
             ${isOpen ? "-translate-x-6" : "translate-x-[1500px]"}`}>
 
             {/** MobileNav Header **/}
@@ -146,7 +146,7 @@ const NavBar = () => {
                     key={i} to={path} className={getNavLinkClass}>
                       <button 
                         onClick={() => setIsOpen(false)} 
-                        className="text-xl w-full class-display">
+                        className="text-xl w-full clash-display">
                           {
                             ["Home", "Fleet", "About Us", "Rent Today"][i]
                           }

@@ -12,7 +12,7 @@ const HeroSection = () => {
         <div className="z-50 gap-4 md:centered-row lg:gap-80">
           {/** LEFT */}
           <div className="z-10 left">
-            <div className="col ma-w3xl mx-auto">
+            <div className="col max-w-3xl mx-auto">
               {/** Sub Head */}
               <div className="mb-4">
                 <div className="bg-zinc-300/20 text-zinc-50
@@ -35,9 +35,9 @@ const HeroSection = () => {
           {/** RIGHT */}
           <div className="right">
             <p className="text-lg z-10 text-gray-200 mb-8 max-w-md">
-              Unlock unparalled freedom with our premium car rental
+              Unlock unparalleled freedom with our premium car rental
               service.{" "}
-              <br className="hidden md:block" /> Experience lusury, comfort, and
+              <br className="hidden md:block" /> Experience luxury, comfort, and
               seamless booking.
             </p>
           </div>

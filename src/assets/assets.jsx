@@ -25,7 +25,6 @@ import {
   MapPin,
   BatteryCharging,
   ShieldCheck,
-  BatteryChargingIcon,
   Clock10,
   Newspaper,
   Sparkles,
@@ -102,13 +101,16 @@ const carUsageCategories = [
   {
     name: "Business Trips",
     image: images.car2,
+    type: 1,
+    pricePerHour: 45
   },
-  { name: "Family Vacations", image: images.car8 },
-  { name: "Weekend Getaways", image: images.car1 },
+  { name: "Family Vacations", image: images.car8, type: 2, pricePerHour: 55 },
+  { name: "Weekend Getaways", image: images.car1, type: 1, pricePerHour: 35 },
   {
     name: "Special Events",
-
     image: images.car11,
+    type: 2,
+    pricePerHour: 120
   },
 ];
 
@@ -287,7 +289,7 @@ const togglerBtns = [
   },
   {
     id: "004",
-    icon: <BatteryChargingIcon className="w-10 h-15" />,
+    icon: <BatteryCharging className="w-10 h-15" />,
     name: "Free Charging",
     action: null,
     isPlaying: false,
