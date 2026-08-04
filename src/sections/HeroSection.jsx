@@ -1,11 +1,11 @@
 import { Sparkles } from "lucide-react"
-import car24 from "../assets/images/car24.jpg"
+import car222 from "../assets/images/car222.png"
 
 const HeroSection = () => {
   return (
     <div
       className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16 md:pt-24 lg:pt-32 bg-no-repeat bg-top bg-cover bg-center"
-      style={{ backgroundImage: `url(${car24})` }}
+      style={{ backgroundImage: `url(${car222})` }}
     >
       {/** Container */}
       <div className="container absolute mx-auto px-6 bottom-10 z-10">
