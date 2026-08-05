@@ -11,7 +11,7 @@ Title: 2026 Bugatti Tourbillon
 
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { useRef } from 'react';
+import { useRef, useLayoutEffect } from 'react';
 
 export function Bugatti_Sport({ bodyColor = "#4682B4", ...props }) {
   const { nodes, materials } = useGLTF('/2026_bugatti_tourbillon.glb');
@@ -24,10 +24,12 @@ export function Bugatti_Sport({ bodyColor = "#4682B4", ...props }) {
     }
   });
 
-  // Apply dynamic color to the paint material if it exists
-  if (materials.bBugatti_Tourbillon_2026Paint_Material1) {
-    materials.bBugatti_Tourbillon_2026Paint_Material1.color.set(bodyColor);
-  }
+  // Apply dynamic color to the paint material safely
+  useLayoutEffect(() => {
+    if (materials.bBugatti_Tourbillon_2026Paint_Material1) {
+      materials.bBugatti_Tourbillon_2026Paint_Material1.color.set(bodyColor);
+    }
+  }, [materials, bodyColor]);
 
   // Set initial position and rotation if needed
   return (
