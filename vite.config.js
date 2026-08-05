@@ -10,7 +10,6 @@ export default defineConfig({
     sourcemap: false,
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
-      maxParallelFileOps: 2,
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
