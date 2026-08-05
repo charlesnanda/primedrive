@@ -11,17 +11,27 @@ Title: 2026 Bugatti Tourbillon
 
 import { useGLTF } from '@react-three/drei';
 import { useFrame } from '@react-three/fiber';
-import { useRef, useEffect, useState } from 'react';
-export function Bugatti_Sport(props) {
+import { useRef } from 'react';
+
+export function Bugatti_Sport({ bodyColor = "#4682B4", ...props }) {
   const { nodes, materials } = useGLTF('/2026_bugatti_tourbillon.glb');
+  const groupRef = useRef();
 
-  console.log("Bugatti model loaded");
+  // Simple rotation animation
+  useFrame((state) => {
+    if (groupRef.current) {
+      groupRef.current.rotation.y = state.clock.getElapsedTime() * 0.1;
+    }
+  });
 
-  const bodyMaterial = materials.santafek_body;
+  // Apply dynamic color to the paint material if it exists
+  if (materials.bBugatti_Tourbillon_2026Paint_Material1) {
+    materials.bBugatti_Tourbillon_2026Paint_Material1.color.set(bodyColor);
+  }
 
-
+  // Set initial position and rotation if needed
   return (
-    <group {...props} dispose={null}>
+    <group ref={groupRef} {...props} dispose={null} rotation={[0, -Math.PI / 4, 0]}>
       <group scale={0.01}>
         <primitive object={nodes._rootJoint} />
         <group position={[0, 0.104, 0]}>

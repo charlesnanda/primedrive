@@ -5,7 +5,7 @@ import { OrbitControls, Environment, Stage } from "@react-three/drei";
 //  model import
 import { Bugatti_Sport } from "./models/2026_bugatti_tourbillon";
 
-const ModelViewer = () => {
+const ModelViewer = ({ bodyColor }) => {
     const [webglSupported, setWebglSupported] = useState(true)
     const [contextLost, setContextLost] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
@@ -62,7 +62,8 @@ const ModelViewer = () => {
         antialias: true,
         powerPreference: "high-performance",
         preserveDrawingBuffer: true,
-    }} style={{width: "100%", height: "100%"}}
+        alpha: true,
+    }} style={{width: "100%", height: "100%", background: "transparent"}}
        onCreated={({gl}) => {
         const canvas = gl.domElement;
         const handleContextLost = (e) => {
@@ -76,10 +77,10 @@ const ModelViewer = () => {
 
 
         <Suspense fallback={null}>
-            <Stage environment="city" intensity={0.6}>
+            <Stage environment="city" intensity={0.6} adjustCamera={false}>
                 {/** PUT ANY MODEL ON STAGE */}
 
-                <Bugatti_Sport />
+                <Bugatti_Sport bodyColor={bodyColor} />
             </Stage>
 
             {/** Lighting */}

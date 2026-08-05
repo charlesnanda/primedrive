@@ -1,5 +1,5 @@
 import BookNowButton from "../components/BookNowButton";
-import { togglerBtns } from "../assets/assets";
+import { togglerBtns, goodColors } from "../assets/assets";
 import { useState } from "react";
 import ModelViewer from "../components/ModelViewer";
 
@@ -52,7 +52,7 @@ const CTASection = () => {
     bg-transparent overflow-hidden">
         {/** 3D Canvas Container */}
         <div className="absolute bg-transparent inset-0">
-            <ModelViewer />
+            <ModelViewer bodyColor={goodColors[activeIndex % goodColors.length]} />
         </div>
 
         {/** Decor: side Overlays */}
