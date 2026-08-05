@@ -23,7 +23,7 @@ const Footer = () => {
               <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r clash-display from-sky-500 to-zinc-900">
                 {" "}
                 {/* Updated gradient */}
-                DriveWell <sup className="text-xs ml-1 text-zinc-700">TM</sup>
+                PrimeDrive <sup className="text-xs ml-1 text-zinc-700">TM</sup>
               </h2>
             </div>
             <p className="text-gray-600 max-w-md">
@@ -123,17 +123,17 @@ const Footer = () => {
               <li className="flex items-center space-x-3 text-gray-600">
                 <Mail size={16} className="text-sky-500" />{" "}
                 {/* Updated icon color */}
-                <span>info@drivewell.com</span> {/* Updated email */}
+                <span>info@primedrive.com</span> {/* Updated email */}
               </li>
               <li className="flex items-center space-x-3 text-gray-600">
                 <Phone size={16} className="text-sky-500" />{" "}
                 {/* Added phone icon */}
-                <span>+1 (555) 123-4567</span> {/* Dummy phone number */}
+                <span>+1 (555) 000-0000</span> {/* Updated phone number */}
               </li>
               <li className="flex items-center space-x-3 text-gray-600">
                 <MapPin size={16} className="text-sky-500" />{" "}
                 {/* Added location icon */}
-                <span>123 Dream Drive, London, UK</span> {/* Dummy address */}
+                <span>123 Prime Drive, London, UK</span> {/* Updated address */}
               </li>
             </ul>
           </div>
