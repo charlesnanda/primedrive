@@ -4,7 +4,7 @@ import {
   Phone,
   MapPin,
   Gauge,
-} from "lucide-react/";
+} from "lucide-react";
 import { Facebook, Instagram, Youtube } from "@boxicons/react";
 
 const Footer = () => {
